@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Oregon Loop — A Field Guide · July 20–25, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f1e9;
+  --paper-2:#ece8dd;
+  --ink:#1c1a15;
+  --ink-60:rgba(28,26,21,.6);
+  --ink-40:rgba(28,26,21,.4);
+  --hair:rgba(28,26,21,.18);
+  --accent:#9a3b1e;
+  --serif:'Fraunces',Georgia,serif;
+  --text:'Newsreader',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --gutter:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--text);font-size:1.06rem;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit}
+img{display:block}
+
+.smallcaps{
+  font-family:var(--sans);font-size:.68rem;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;
+}
+
+/* ---------- masthead ---------- */
+#masthead{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:0 var(--gutter);height:54px;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hair);
+}
+#masthead .wordmark{
+  font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;text-decoration:none;white-space:nowrap;
+}
+#masthead nav{display:flex;gap:clamp(10px,2vw,26px)}
+#masthead nav a{
+  font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;text-decoration:none;color:var(--ink-60);
+  padding:4px 0;border-bottom:1px solid transparent;
+}
+#masthead nav a:hover{color:var(--ink)}
+#masthead nav a.active{color:var(--ink);border-bottom-color:var(--ink)}
+#masthead .logged{
+  font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;white-space:nowrap;color:var(--ink-60);
+}
+#masthead .logged b{color:var(--accent);font-weight:600}
+#logbar{
+  position:fixed;top:54px;left:0;height:2px;width:0;z-index:60;
+  background:var(--accent);transition:width .5s ease;
+}
+@media(max-width:900px){#masthead nav{display:none}}
+
+/* ---------- hero ---------- */
+#hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:#2a2e2c}
+#hero img{
+  width:100%;height:100%;object-fit:cover;
+  animation:settle 2.8s ease-out both;
+}
+@keyframes settle{from{transform:scale(1.06)}to{transform:scale(1)}}
+#hero .scrim{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(16,17,15,.72) 0%,rgba(16,17,15,.15) 45%,rgba(16,17,15,.25) 100%);
+}
+#hero .title{
+  position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(48px,9vh,96px);
+  color:#f4f1e9;
+}
+#hero .kicker{color:#d8cfba;margin-bottom:18px;animation:fadeup 1s .3s both}
+#hero h1{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(4rem,14vw,11rem);line-height:.92;letter-spacing:-.015em;
+  animation:fadeup 1s .5s both;
+}
+#hero .sub{
+  margin-top:26px;max-width:520px;
+  font-family:var(--text);font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.55;
+  color:rgba(244,241,233,.88);
+  animation:fadeup 1s .7s both;
+}
+#hero .sub em{font-style:italic}
+#hero .plate-credit{
+  position:absolute;right:var(--gutter);bottom:18px;
+  font-family:var(--sans);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(244,241,233,.55);text-decoration:none;
+}
+#hero .plate-credit:hover{color:#f4f1e9}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- lede ---------- */
+#lede{padding:clamp(64px,10vh,120px) var(--gutter) 0}
+#lede .col{max-width:680px;margin:0 auto}
+#lede p{
+  font-family:var(--text);font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.6;
+  font-weight:400;
+}
+#lede p::first-letter{
+  font-family:var(--serif);font-weight:600;font-size:3.2em;float:left;
+  line-height:.78;padding:6px 12px 0 0;color:var(--accent);
+}
+.stats{
+  max-width:980px;margin:clamp(48px,8vh,88px) auto 0;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+}
+.stats div{
+  padding:22px 8px;text-align:center;
+  border-left:1px solid var(--hair);
+}
+.stats div:first-child{border-left:none}
+.stats b{
+  display:block;font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.1;
+}
+.stats span{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-60)}
+@media(max-width:640px){.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(3){border-left:none}.stats div{border-top:1px solid var(--hair)}.stats div:nth-child(-n+2){border-top:none}}
+
+/* ---------- route index ---------- */
+#route{padding:clamp(64px,10vh,110px) var(--gutter)}
+#route .head{max-width:980px;margin:0 auto 34px;display:flex;justify-content:space-between;align-items:baseline}
+#route h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3vw,2.2rem)}
+#route ol{
+  max-width:980px;margin:0 auto;list-style:none;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--hair);border-left:1px solid var(--hair);
+}
+#route li{
+  border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  padding:18px 18px 22px;position:relative;
+}
+#route li .n{
+  font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.2em;
+  color:var(--ink-40);display:flex;justify-content:space-between;
+}
+#route li .n .tick{color:var(--accent);opacity:0;transition:opacity .3s}
+#route li.completed .n .tick{opacity:1}
+#route li b{
+  display:block;margin-top:26px;font-family:var(--serif);font-weight:400;
+  font-size:1.05rem;line-height:1.2;
+}
+#route li span.when{font-family:var(--sans);font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60)}
+#route li.completed b{color:var(--accent)}
+@media(max-width:760px){#route ol{grid-template-columns:1fr 1fr}}
+
+/* ---------- chapters ---------- */
+.chapter{margin-top:clamp(40px,8vh,90px)}
+.plate{position:relative;height:clamp(420px,78vh,820px);overflow:hidden;background:#2a2e2c}
+.plate img{width:100%;height:100%;object-fit:cover}
+.plate .scrim{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(16,17,15,.68) 0%,transparent 42%);
+}
+.plate .plate-title{
+  position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(28px,6vh,58px);
+  color:#f4f1e9;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.plate .no{
+  font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.26em;
+  text-transform:uppercase;color:#d8cfba;display:block;margin-bottom:12px;
+}
+.plate h2{
+  font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,6.5vw,4.8rem);
+  line-height:.98;letter-spacing:-.01em;
+}
+.plate .plate-when{
+  font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(244,241,233,.75);padding-bottom:10px;
+}
+.plate .plate-credit{
+  position:absolute;right:var(--gutter);top:18px;
+  font-family:var(--sans);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(244,241,233,.5);text-decoration:none;
+}
+.plate .plate-credit:hover{color:#f4f1e9}
+
+.chapter-body{
+  max-width:1060px;margin:0 auto;padding:clamp(40px,7vh,72px) var(--gutter) 0;
+  display:grid;grid-template-columns:250px 1fr;gap:clamp(30px,5vw,72px);
+  align-items:start;
+}
+@media(max-width:820px){.chapter-body{grid-template-columns:1fr}}
+
+.meta{position:sticky;top:78px}
+.meta dl{border-top:1px solid var(--hair)}
+.meta .row{
+  display:grid;grid-template-columns:74px 1fr;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--hair);
+}
+.meta dt{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-40);padding-top:4px}
+.meta dd{font-family:var(--text);font-size:.92rem;line-height:1.45}
+.meta dd .status{color:var(--accent);font-style:italic}
+@media(max-width:820px){.meta{position:static}}
+
+.moments{border-top:1px solid var(--hair)}
+.moment{
+  display:grid;grid-template-columns:96px 1fr 30px;gap:18px;
+  padding:22px 0;border-bottom:1px solid var(--hair);
+}
+.moment .m-label{
+  font-family:var(--sans);font-size:.64rem;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--accent);padding-top:6px;
+}
+.moment p{font-size:1.02rem;color:var(--ink)}
+.moment p strong{font-weight:500;font-family:var(--text)}
+.moment.done p{color:var(--ink-40)}
+.moment.done .m-label{color:var(--ink-40);text-decoration:line-through}
+.m-check{
+  width:18px;height:18px;margin-top:7px;justify-self:end;
+  border:1px solid var(--ink-60);background:transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.68rem;color:transparent;transition:all .2s;padding:0;
+}
+.m-check:hover{border-color:var(--ink)}
+.moment.done .m-check{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+@media(max-width:560px){.moment{grid-template-columns:1fr 30px}.moment .m-label{grid-column:1/-1;padding-top:0;margin-bottom:-12px}}
+
+/* ---------- field notes ---------- */
+.fieldnotes{margin-top:clamp(36px,6vh,56px)}
+.fn-head{
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding-bottom:12px;border-bottom:1px solid var(--ink);
+}
+.fn-head h3{font-family:var(--serif);font-weight:400;font-style:italic;font-size:1.3rem}
+.fn-count{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-40);text-align:right}
+.fn-entries{margin-top:4px}
+.fn-note{padding:16px 0;border-bottom:1px solid var(--hair);position:relative}
+.fn-note p{font-family:var(--text);font-style:italic;font-size:1.05rem;white-space:pre-wrap;padding-right:28px}
+.fn-note time{display:block;margin-top:8px;font-family:var(--sans);font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-40)}
+.fn-media{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;padding:16px 0;border-bottom:1px solid var(--hair)}
+.fn-media:empty,.fn-entries:empty{display:none}
+.fn-thumb{position:relative;aspect-ratio:1;overflow:hidden;cursor:zoom-in;background:#2a2e2c}
+.fn-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.92)}
+.fn-video{
+  position:relative;aspect-ratio:16/9;grid-column:span 2;cursor:pointer;
+  background:#22201b;display:flex;align-items:center;justify-content:center;
+}
+.fn-video .play{
+  width:0;height:0;border-left:16px solid var(--paper);
+  border-top:10px solid transparent;border-bottom:10px solid transparent;
+}
+.fn-video .v-label{
+  position:absolute;left:10px;bottom:8px;
+  font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(244,241,233,.65);
+}
+.fn-del{
+  position:absolute;top:8px;right:0;width:22px;height:22px;
+  border:none;background:transparent;color:var(--ink-40);
+  font-size:1rem;line-height:1;cursor:pointer;opacity:0;transition:opacity .2s;
+}
+.fn-thumb .fn-del,.fn-video .fn-del{top:4px;right:4px;background:rgba(16,17,15,.6);color:#f4f1e9;font-size:.75rem}
+.fn-note:hover .fn-del,.fn-thumb:hover .fn-del,.fn-video:hover .fn-del{opacity:1}
+.fn-tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.fn-btn{
+  font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink);background:transparent;
+  border:1px solid var(--ink-60);padding:9px 16px;cursor:pointer;transition:all .2s;
+}
+.fn-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.fn-form{display:none;margin-top:14px}
+.fn-form.open{display:block}
+.fn-form textarea,.fn-form input[type=url]{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--ink-60);
+  font-family:var(--text);font-style:italic;font-size:1.05rem;color:var(--ink);
+  padding:8px 2px;resize:vertical;
+}
+.fn-form textarea{min-height:56px}
+.fn-form textarea:focus,.fn-form input[type=url]:focus{outline:none;border-bottom-color:var(--accent)}
+.fn-form .hint{font-family:var(--sans);font-size:.6rem;letter-spacing:.08em;color:var(--ink-40);margin-top:8px}
+.fn-form .row{display:flex;gap:10px;margin-top:12px}
+
+/* ---------- interlude ---------- */
+.interlude{position:relative;height:clamp(380px,72vh,720px);overflow:hidden;margin-top:clamp(48px,9vh,100px);background:#2a2e2c}
+.interlude img{width:100%;height:100%;object-fit:cover}
+.interlude .scrim{position:absolute;inset:0;background:rgba(16,17,15,.38)}
+.interlude blockquote{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  color:#f4f1e9;padding:0 var(--gutter);
+}
+.interlude blockquote p{
+  font-family:var(--serif);font-weight:300;font-style:italic;
+  font-size:clamp(1.5rem,3.6vw,2.6rem);line-height:1.3;max-width:760px;
+}
+.interlude cite{margin-top:18px;font-style:normal;font-family:var(--sans);font-size:.64rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,241,233,.7)}
+.interlude .plate-credit{
+  position:absolute;right:var(--gutter);bottom:16px;
+  font-family:var(--sans);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(244,241,233,.5);text-decoration:none;
+}
+
+/* ---------- appendix ---------- */
+#appendix{padding:clamp(72px,11vh,130px) var(--gutter) 0}
+#appendix .wrap{max-width:1060px;margin:0 auto}
+#appendix h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,3.6vw,2.6rem);margin-bottom:8px}
+#appendix .sub{font-style:italic;color:var(--ink-60);margin-bottom:44px}
+.app-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--ink);
+}
+.app-grid section{padding:24px 22px 30px;border-left:1px solid var(--hair)}
+.app-grid section:first-child{border-left:none;padding-left:0}
+.app-grid h4{font-family:var(--sans);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+.app-grid ul{list-style:none}
+.app-grid li{font-size:.95rem;line-height:1.5;padding:7px 0;border-bottom:1px solid var(--hair)}
+@media(max-width:820px){.app-grid{grid-template-columns:1fr 1fr}.app-grid section:nth-child(3){border-left:none;padding-left:0}}
+@media(max-width:520px){.app-grid{grid-template-columns:1fr}.app-grid section{border-left:none;padding-left:0}}
+
+/* ---------- footer ---------- */
+footer{margin-top:clamp(72px,11vh,130px);border-top:1px solid var(--ink);padding:44px var(--gutter) 56px}
+footer .wrap{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
+footer .sig{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.4rem}
+footer .colophon{font-family:var(--sans);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-40)}
+footer .tools{display:flex;gap:18px;flex-wrap:wrap}
+footer .tools button,footer .tools a{
+  font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;background:none;border:none;padding:0;cursor:pointer;
+  color:var(--ink-60);text-decoration:none;border-bottom:1px solid var(--hair);
+}
+footer .tools button:hover,footer .tools a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+footer .note{width:100%;font-family:var(--sans);font-size:.64rem;color:var(--ink-40);letter-spacing:.04em;margin-top:6px}
+
+/* ---------- lightbox ---------- */
+#lightbox{
+  position:fixed;inset:0;z-index:120;display:none;
+  align-items:center;justify-content:center;background:rgba(18,17,14,.94);
+  padding:28px;cursor:zoom-out;
+}
+#lightbox.open{display:flex}
+#lightbox img{max-width:92vw;max-height:86vh}
+#lightbox .frame{width:min(1100px,94vw);aspect-ratio:16/9;background:#000;cursor:default}
+#lightbox .frame iframe{width:100%;height:100%;border:0}
+#lightbox .lb-open{
+  position:absolute;top:20px;right:26px;
+  font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(244,241,233,.7);text-decoration:none;
+}
+#lightbox .lb-open:hover{color:#fff}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body id="top">
+
+<header id="masthead">
+  <a class="wordmark" href="#top">The Oregon Loop&nbsp;·&nbsp;MMXXVI</a>
+  <nav>
+    <a href="#day1">I&nbsp;Coast</a>
+    <a href="#day2">II&nbsp;Falls</a>
+    <a href="#day3">III&nbsp;Mountain</a>
+    <a href="#day4">IV&nbsp;Crater</a>
+    <a href="#day5">V&nbsp;Dunes</a>
+    <a href="#appendix">Appendix</a>
+  </nav>
+  <span class="logged"><b id="loggedCount">0</b>&thinsp;/&thinsp;15 logged</span>
+</header>
+<div id="logbar"></div>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Haystack_Rock_and_Cannon_Beach_from_Ecola_State_Park_01.jpg/1280px-Haystack_Rock_and_Cannon_Beach_from_Ecola_State_Park_01.jpg" alt="The Oregon coast from Ecola State Park, sea stacks in the mist">
+  <div class="scrim"></div>
+  <div class="title">
+    <p class="kicker smallcaps">A field guide to five days on the road</p>
+    <h1>Oregon</h1>
+    <p class="sub">Portland to the sea, behind the waterfalls, up the mountain, around the deepest lake in America, and over the dunes. <em>Three friends. One loop.</em> July 20&ndash;25, 2026.</p>
+  </div>
+  <a class="plate-credit" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Haystack_Rock_and_Cannon_Beach_from_Ecola_State_Park_01.jpg">Ecola State Park — Wikimedia</a>
+</section>
+
+<!-- ========== LEDE ========== -->
+<section id="lede">
+  <div class="col reveal">
+    <p>Some trips are an escape. This one is a circle — drawn clockwise from Portland through everything Oregon does best: a bonfire on the sand at Cannon Beach, a trail that ducks behind ten waterfalls, two nights of hot-spring mineral water, the alpine quiet of Mount Hood, the impossible blue of Crater Lake, and one loud, fast morning on the dunes before the forest carries us home.</p>
+  </div>
+  <div class="stats reveal">
+    <div><b>~900</b><span>miles driven</span></div>
+    <div><b>10+</b><span>waterfalls</span></div>
+    <div><b>1,943</b><span>ft of lake depth</span></div>
+    <div><b>0</b><span>alarms after 8 a.m.</span></div>
+  </div>
+</section>
+
+<!-- ========== ROUTE ========== -->
+<section id="route">
+  <div class="head reveal">
+    <h2>The Route</h2>
+    <span class="smallcaps" style="color:var(--ink-40)">Clockwise from PDX</span>
+  </div>
+  <ol class="reveal">
+    <li data-day="day1"><span class="n">01 <i class="tick">✓ logged</i></span><b>Portland Intl.</b><span class="when">Mon, morning</span></li>
+    <li data-day="day1"><span class="n">02 <i class="tick">✓ logged</i></span><b>Cannon Beach</b><span class="when">Mon, night</span></li>
+    <li data-day="day2"><span class="n">03 <i class="tick">✓ logged</i></span><b>Silver Falls</b><span class="when">Tue, midday</span></li>
+    <li data-day="day2"><span class="n">04 <i class="tick">✓ logged</i></span><b>Bonneville Springs</b><span class="when">Tue &amp; Wed</span></li>
+    <li data-day="day3"><span class="n">05 <i class="tick">✓ logged</i></span><b>Mount Hood</b><span class="when">Wed, afternoon</span></li>
+    <li data-day="day4"><span class="n">06 <i class="tick">✓ logged</i></span><b>Crater Lake</b><span class="when">Thu, afternoon</span></li>
+    <li data-day="day5"><span class="n">07 <i class="tick">✓ logged</i></span><b>The Dunes</b><span class="when">Fri, morning</span></li>
+    <li data-day="day5"><span class="n">08 <i class="tick">✓ logged</i></span><b>Willamette Forest</b><span class="when">Fri, afternoon</span></li>
+  </ol>
+</section>
+
+<!-- ========== CHAPTER I ========== -->
+<section class="chapter" id="day1">
+  <figure class="plate">
+    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Haystacks_Rocks_and_the_Needles%2CCannon_Beach_just_before_sunset.jpg/1280px-Haystacks_Rocks_and_the_Needles%2CCannon_Beach_just_before_sunset.jpg" alt="Haystack Rock and the Needles at sunset, Cannon Beach">
+    <div class="scrim"></div>
+    <a class="plate-credit" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Haystacks_Rocks_and_the_Needles,Cannon_Beach_just_before_sunset.jpg">Haystack Rock — Wikimedia</a>
+    <div class="plate-title">
+      <div><span class="no">Chapter I &nbsp;·&nbsp; Monday, July 20</span>
+      <h2>The Coast</h2></div>
+      <span class="plate-when">Cannon Beach</span>
+    </div>
+  </figure>
+  <div class="chapter-body">
+    <aside class="meta reveal">
+      <dl>
+        <div class="row"><dt>Date</dt><dd>Monday, July 20</dd></div>
+        <div class="row"><dt>Drive</dt><dd>PDX &rarr; Cannon Beach, 1½ hrs west</dd></div>
+        <div class="row"><dt>Stay</dt><dd>The Surfsand Resort, oceanfront</dd></div>
+        <div class="row"><dt>Logged</dt><dd class="day-status"><span class="status">—</span></dd></div>
+      </dl>
+    </aside>
+    <div class="reveal">
+      <div class="moments">
+        <div class="moment"><span class="m-label">Morning</span>
+          <p>Wheels down at <strong>PDX, 9:45 a.m.</strong> Pick up the rental car and drive west through the Coast Range — ninety minutes from jet bridge to ocean air.</p></div>
+        <div class="moment"><span class="m-label">Afternoon</span>
+          <p>Check into the oceanfront room, find a fresh, savory lunch in town, then walk the shoreline to <strong>Haystack Rock</strong> — 235 feet of basalt standing in the surf, tide pools at its feet.</p></div>
+        <div class="moment"><span class="m-label">Evening</span>
+          <p>The resort staff builds the <strong>private beach bonfire</strong>; we supply the cold beer. First sunset of the trip, straight into the Pacific.</p></div>
+      </div>
+      <div class="fieldnotes" data-day="day1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CHAPTER II ========== -->
+<section class="chapter" id="day2">
+  <figure class="plate">
+    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/People_walking_behind_South_Falls_at_Silver_Falls_State_Park.jpg/1280px-People_walking_behind_South_Falls_at_Silver_Falls_State_Park.jpg" alt="Hikers on the trail behind South Falls, Silver Falls State Park">
+    <div class="scrim"></div>
+    <a class="plate-credit" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:People_walking_behind_South_Falls_at_Silver_Falls_State_Park.jpg">South Falls — Wikimedia</a>
+    <div class="plate-title">
+      <div><span class="no">Chapter II &nbsp;·&nbsp; Tuesday, July 21</span>
+      <h2>Ten Falls</h2></div>
+      <span class="plate-when">Silver Falls &rarr; the Gorge</span>
+    </div>
+  </figure>
+  <div class="chapter-body">
+    <aside class="meta reveal">
+      <dl>
+        <div class="row"><dt>Date</dt><dd>Tuesday, July 21</dd></div>
+        <div class="row"><dt>Drive</dt><dd>Coast &rarr; Silver Falls, 2 hrs; then north to the Gorge, 1½ hrs</dd></div>
+        <div class="row"><dt>Hike</dt><dd>Trail of Ten Falls, 7.2-mile loop</dd></div>
+        <div class="row"><dt>Stay</dt><dd>Bonneville Hot Springs Resort &amp; Spa — night one</dd></div>
+        <div class="row"><dt>Logged</dt><dd class="day-status"><span class="status">—</span></dd></div>
+      </dl>
+    </aside>
+    <div class="reveal">
+      <div class="moments">
+        <div class="moment"><span class="m-label">Morning</span>
+          <p>Check out and drive two hours inland to <strong>Silver Falls State Park</strong> — the state's largest, and its best-kept worst-kept secret.</p></div>
+        <div class="moment"><span class="m-label">Afternoon</span>
+          <p>The <strong>Trail of Ten Falls</strong>: a shaded canyon loop that passes ten waterfalls and walks you <strong>directly behind</strong> the tallest of them, where the curtain of water hangs a few feet from your face. Then push north into the Columbia River Gorge.</p></div>
+        <div class="moment"><span class="m-label">Evening</span>
+          <p>Check in, eat well, and lower seven miles of hiking into the <strong>mineral pools</strong> until it disappears.</p></div>
+      </div>
+      <div class="fieldnotes" data-day="day2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INTERLUDE ========== -->
+<figure class="interlude">
+  <img loading="lazy" src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1600&q=75&fm=jpg" alt="Multnomah Falls and Benson Bridge, Columbia River Gorge">
+  <div class="scrim"></div>
+  <blockquote>
+    <p>The Gorge hangs its rivers off six-hundred-foot cliffs and calls it scenery.</p>
+    <cite>Multnomah Falls — 611 feet, tallest in Oregon</cite>
+  </blockquote>
+  <a class="plate-credit" target="_blank" rel="noopener" href="https://unsplash.com/photos/8Pm_A-OHJGg">Multnomah Falls — Unsplash</a>
+</figure>
+
+<!-- ========== CHAPTER III ========== -->
+<section class="chapter" id="day3">
+  <figure class="plate">
+    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mount_Hood_reflected_in_Mirror_Lake%2C_Oregon.jpg/1280px-Mount_Hood_reflected_in_Mirror_Lake%2C_Oregon.jpg" alt="Mount Hood reflected in Mirror Lake">
+    <div class="scrim"></div>
+    <a class="plate-credit" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Mount_Hood_reflected_in_Mirror_Lake,_Oregon.jpg">Mount Hood — Wikimedia</a>
+    <div class="plate-title">
+      <div><span class="no">Chapter III &nbsp;·&nbsp; Wednesday, July 22</span>
+      <h2>The Mountain</h2></div>
+      <span class="plate-when">The Gorge &rarr; Mount Hood</span>
+    </div>
+  </figure>
+  <div class="chapter-body">
+    <aside class="meta reveal">
+      <dl>
+        <div class="row"><dt>Date</dt><dd>Wednesday, July 22</dd></div>
+        <div class="row"><dt>Drive</dt><dd>15 min to the falls; then south up the mountain</dd></div>
+        <div class="row"><dt>Peak</dt><dd>Mount Hood, 11,249 ft — Oregon's tallest</dd></div>
+        <div class="row"><dt>Stay</dt><dd>Bonneville Hot Springs Resort &amp; Spa — night two</dd></div>
+        <div class="row"><dt>Logged</dt><dd class="day-status"><span class="status">—</span></dd></div>
+      </dl>
+    </aside>
+    <div class="reveal">
+      <div class="moments">
+        <div class="moment"><span class="m-label">Morning</span>
+          <p>Cool and quiet: fifteen minutes to <strong>Multnomah Falls</strong> and <strong>Latourell Falls</strong> before the crowds wake up. The classic shots, no strangers in them.</p></div>
+        <div class="moment"><span class="m-label">Afternoon</span>
+          <p>Ride the Gorge east, then climb south into thin, crisp air. From the stone terraces of the historic <strong>Timberline Lodge</strong>, half of Oregon lays out below and the summit hangs above.</p></div>
+        <div class="moment"><span class="m-label">Evening</span>
+          <p>Back down the mountain for a <strong>second consecutive night in the mineral water</strong>. Some routines are worth two nights.</p></div>
+      </div>
+      <div class="fieldnotes" data-day="day3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CHAPTER IV ========== -->
+<section class="chapter" id="day4">
+  <figure class="plate">
+    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219372621%29.jpg" alt="Wizard Island and the deep blue water of Crater Lake">
+    <div class="scrim"></div>
+    <a class="plate-credit" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Wizard_Island,_Crater_Lake_National_Park,_Oregon_(219372621).jpg">Crater Lake — Wikimedia</a>
+    <div class="plate-title">
+      <div><span class="no">Chapter IV &nbsp;·&nbsp; Thursday, July 23</span>
+      <h2>The Crater</h2></div>
+      <span class="plate-when">South to Crater Lake</span>
+    </div>
+  </figure>
+  <div class="chapter-body">
+    <aside class="meta reveal">
+      <dl>
+        <div class="row"><dt>Date</dt><dd>Thursday, July 23</dd></div>
+        <div class="row"><dt>Drive</dt><dd>The long haul south; then west to the coast by dark</dd></div>
+        <div class="row"><dt>Depth</dt><dd>1,943 ft — the deepest lake in America</dd></div>
+        <div class="row"><dt>Stay</dt><dd>Driftwood Shores Resort or similar, Florence / Coos Bay</dd></div>
+        <div class="row"><dt>Logged</dt><dd class="day-status"><span class="status">—</span></dd></div>
+      </dl>
+    </aside>
+    <div class="reveal">
+      <div class="moments">
+        <div class="moment"><span class="m-label">Morning</span>
+          <p>Check out of the springs and point the car south. <strong>Road-trip morning</strong>: gas, coffee, a long playlist, and Oregon rolling past the windows.</p></div>
+        <div class="moment"><span class="m-label">Afternoon</span>
+          <p><strong>Crater Lake National Park.</strong> Take Rim Drive slowly — every pull-out reframes a collapsed volcano holding the bluest water any of us will ever see.</p></div>
+        <div class="moment"><span class="m-label">Evening</span>
+          <p>Drive west and sleep <strong>next to the dunes</strong>. Tomorrow starts loud.</p></div>
+      </div>
+      <div class="fieldnotes" data-day="day4"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CHAPTER V ========== -->
+<section class="chapter" id="day5">
+  <figure class="plate">
+    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/USA_Oregon_Dunes.jpg/960px-USA_Oregon_Dunes.jpg" alt="The Oregon Dunes National Recreation Area">
+    <div class="scrim"></div>
+    <a class="plate-credit" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:USA_Oregon_Dunes.jpg">Oregon Dunes — Wikimedia</a>
+    <div class="plate-title">
+      <div><span class="no">Chapter V &nbsp;·&nbsp; Friday, July 24</span>
+      <h2>The Dunes</h2></div>
+      <span class="plate-when">Florence &rarr; Willamette &rarr; PDX</span>
+    </div>
+  </figure>
+  <div class="chapter-body">
+    <aside class="meta reveal">
+      <dl>
+        <div class="row"><dt>Date</dt><dd>Friday, July 24</dd></div>
+        <div class="row"><dt>Ride</dt><dd>ATVs on the dunes, 9:00–11:30 a.m.</dd></div>
+        <div class="row"><dt>Drive</dt><dd>McKenzie&ndash;Santiam Pass Scenic Byway or Hwy 58, northeast</dd></div>
+        <div class="row"><dt>Stay</dt><dd>Hotel beside PDX — stress-free departure</dd></div>
+        <div class="row"><dt>Logged</dt><dd class="day-status"><span class="status">—</span></dd></div>
+      </dl>
+    </aside>
+    <div class="reveal">
+      <div class="moments">
+        <div class="moment"><span class="m-label">Morning</span>
+          <p><strong>9:00 a.m., Oregon Dunes National Recreation Area.</strong> Two and a half hours of ATVs or a fast buggy tour over the sand peaks — cool air, firm sand, full throttle.</p></div>
+        <div class="moment"><span class="m-label">Afternoon</span>
+          <p>The slow drive: northeast into the <strong>Willamette National Forest</strong>. With the riding done there is no schedule — pull over for the roaring rivers, walk under the old-growth Douglas firs, take the long way on purpose.</p></div>
+        <div class="moment"><span class="m-label">Evening</span>
+          <p>Finish the loop at a hotel <strong>beside the airport</strong>. In the morning: coffee, gate, home.</p></div>
+      </div>
+      <div class="fieldnotes" data-day="day5"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== APPENDIX ========== -->
+<section id="appendix">
+  <div class="wrap reveal">
+    <h2>Appendix</h2>
+    <p class="sub">The small print that keeps five days smooth.</p>
+    <div class="app-grid">
+      <section>
+        <h4>Pack</h4>
+        <ul>
+          <li>Layers — the coast runs cool, even in July</li>
+          <li>Real hiking shoes; the falls trail stays misty</li>
+          <li>Swimsuits for the mineral pools</li>
+          <li>Sunglasses and sunscreen for the dunes</li>
+          <li>A beanie for the bonfire</li>
+        </ul>
+      </section>
+      <section>
+        <h4>The Car</h4>
+        <ul>
+          <li>Pick up at PDX, Monday ~10 a.m.</li>
+          <li>Top off fuel before Crater Lake</li>
+          <li>Some Oregon stations pump for you — let them</li>
+          <li>Download offline maps; the passes drop signal</li>
+        </ul>
+      </section>
+      <section>
+        <h4>Book Ahead</h4>
+        <ul>
+          <li>Crater Lake entrance — $30 per car</li>
+          <li>ATV rental for Friday, 9 a.m.</li>
+          <li>Bonfire slot with the Surfsand staff</li>
+          <li>Timberline lunch, if a table matters</li>
+        </ul>
+      </section>
+      <section>
+        <h4>The Shots</h4>
+        <ul>
+          <li>Haystack Rock at golden hour</li>
+          <li>Behind the curtain at South Falls</li>
+          <li>The summit from Timberline's terrace</li>
+          <li>Wizard Island from a Rim Drive pull-out</li>
+          <li>Somebody mid-air on the sand</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="sig">Five days, three friends, one loop.</span>
+    <span class="colophon">PDX &rarr; Coast &rarr; Falls &rarr; Mountain &rarr; Crater &rarr; Dunes &rarr; PDX</span>
+    <div class="tools">
+      <a href="#" id="driveLink">Our shared Drive folder ↗</a>
+      <button id="driveSet">Set Drive folder</button>
+      <button id="exportBtn">Download backup</button>
+      <button id="importBtn">Load backup</button>
+      <input type="file" id="importFile" accept="application/json" hidden>
+    </div>
+    <p class="note">Checkmarks, notes, photos and clip links save automatically on this device. Videos live in the shared Google Drive folder — paste their share links here so everyone can watch. Trade backup files to merge journals between phones.</p>
+  </div>
+</footer>
+
+<div id="lightbox"></div>
+
+<script>
+/* ---------- persistent store ---------- */
+const store = {
+  data: JSON.parse(localStorage.getItem('oregonTrip') || '{"done":{},"mem":{}}'),
+  save() {
+    try { localStorage.setItem('oregonTrip', JSON.stringify(this.data)); }
+    catch (e) { alert('Storage is full — delete a couple of journal photos, or download a backup first.'); }
+  }
+};
+store.data.done ||= {}; store.data.mem ||= {};
+const days = ['day1','day2','day3','day4','day5'];
+let totalMoments = 0;
+
+/* ---------- moment checks ---------- */
+days.forEach(id => {
+  const sec = document.getElementById(id);
+  sec.querySelectorAll('.moment').forEach((moment, i) => {
+    totalMoments++;
+    const key = id + '-' + i;
+    const btn = document.createElement('button');
+    btn.className = 'm-check';
+    btn.textContent = '✓';
+    btn.setAttribute('aria-label', 'Log this moment');
+    if (store.data.done[key]) moment.classList.add('done');
+    btn.addEventListener('click', () => {
+      moment.classList.toggle('done');
+      if (moment.classList.contains('done')) store.data.done[key] = true;
+      else delete store.data.done[key];
+      store.save();
+      refreshProgress();
+    });
+    moment.appendChild(btn);
+  });
+});
+
+function refreshProgress() {
+  let done = 0;
+  days.forEach(id => {
+    const sec = document.getElementById(id);
+    const moments = [...sec.querySelectorAll('.moment')];
+    const d = moments.filter(m => m.classList.contains('done')).length;
+    done += d;
+    sec.querySelector('.day-status .status').textContent =
+      d === 0 ? 'not yet' : d === moments.length ? 'day complete' : d + ' of ' + moments.length;
+    document.querySelectorAll('#route li[data-day="' + id + '"]')
+      .forEach(li => li.classList.toggle('completed', d === moments.length));
+  });
+  document.getElementById('loggedCount').textContent = done;
+  document.getElementById('logbar').style.width = (done / totalMoments * 100) + '%';
+}
+
+/* ---------- lightbox (images + video embeds) ---------- */
+const lightbox = document.getElementById('lightbox');
+function openLightboxImage(src) {
+  lightbox.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = src;
+  lightbox.appendChild(img);
+  lightbox.classList.add('open');
+}
+function openLightboxVideo(embedUrl, originalUrl) {
+  lightbox.innerHTML = '';
+  const frame = document.createElement('div');
+  frame.className = 'frame';
+  frame.addEventListener('click', e => e.stopPropagation());
+  const iframe = document.createElement('iframe');
+  iframe.src = embedUrl;
+  iframe.allow = 'autoplay; fullscreen';
+  iframe.allowFullscreen = true;
+  frame.appendChild(iframe);
+  const out = document.createElement('a');
+  out.className = 'lb-open';
+  out.href = originalUrl;
+  out.target = '_blank';
+  out.rel = 'noopener';
+  out.textContent = 'Open in Drive ↗';
+  lightbox.append(frame, out);
+  lightbox.classList.add('open');
+}
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('open');
+  lightbox.innerHTML = '';
+});
+
+/* ---------- video link parsing ---------- */
+function videoEmbed(url) {
+  let m = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+  if (m) return 'https://drive.google.com/file/d/' + m[1] + '/preview';
+  m = url.match(/drive\.google\.com\/open\?id=([\w-]+)/);
+  if (m) return 'https://drive.google.com/file/d/' + m[1] + '/preview';
+  m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([\w-]+)/);
+  if (m) return 'https://www.youtube.com/embed/' + m[1];
+  return null;
+}
+
+/* ---------- field notes ---------- */
+function stamp(ts) {
+  return new Date(ts).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+}
+
+function renderNotes(id) {
+  const list = store.data.mem[id] || [];
+  const box = document.querySelector('.fieldnotes[data-day="' + id + '"]');
+  const media = box.querySelector('.fn-media');
+  const entries = box.querySelector('.fn-entries');
+  media.innerHTML = '';
+  entries.innerHTML = '';
+
+  const del = (i) => {
+    const b = document.createElement('button');
+    b.className = 'fn-del';
+    b.textContent = '×';
+    b.title = 'Delete';
+    b.addEventListener('click', e => {
+      e.stopPropagation();
+      if (confirm('Remove this entry from the journal?')) {
+        list.splice(i, 1);
+        store.data.mem[id] = list;
+        store.save();
+        renderNotes(id);
+      }
+    });
+    return b;
+  };
+
+  list.forEach((m, i) => {
+    if (m.k === 'n') {
+      const el = document.createElement('div');
+      el.className = 'fn-note';
+      const p = document.createElement('p');
+      p.textContent = m.text;
+      const t = document.createElement('time');
+      t.textContent = stamp(m.ts);
+      el.append(p, t, del(i));
+      entries.appendChild(el);
+    } else if (m.k === 'p') {
+      const el = document.createElement('div');
+      el.className = 'fn-thumb';
+      const img = document.createElement('img');
+      img.src = m.src;
+      img.alt = 'Trip photograph';
+      el.addEventListener('click', () => openLightboxImage(m.src));
+      el.append(img, del(i));
+      media.appendChild(el);
+    } else if (m.k === 'v') {
+      const el = document.createElement('div');
+      el.className = 'fn-video';
+      const play = document.createElement('span');
+      play.className = 'play';
+      const lab = document.createElement('span');
+      lab.className = 'v-label';
+      lab.textContent = 'Clip · ' + stamp(m.ts);
+      el.addEventListener('click', () => {
+        const embed = videoEmbed(m.url);
+        if (embed) openLightboxVideo(embed, m.url);
+        else window.open(m.url, '_blank');
+      });
+      el.append(play, lab, del(i));
+      media.appendChild(el);
+    }
+  });
+
+  const notes = list.filter(m => m.k === 'n').length;
+  const pics = list.filter(m => m.k === 'p').length;
+  const vids = list.filter(m => m.k === 'v').length;
+  box.querySelector('.fn-count').textContent =
+    list.length ? [pics && pics + ' photo' + (pics > 1 ? 's' : ''),
+                   vids && vids + ' clip' + (vids > 1 ? 's' : ''),
+                   notes && notes + ' note' + (notes > 1 ? 's' : '')].filter(Boolean).join(' · ')
+                : 'nothing logged yet';
+}
+
+function compressImage(file) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, 1200 / Math.max(img.width, img.height));
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.width * scale);
+      c.height = Math.round(img.height * scale);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(img.src);
+      resolve(c.toDataURL('image/jpeg', 0.72));
+    };
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+const roman = { day1: 'One', day2: 'Two', day3: 'Three', day4: 'Four', day5: 'Five' };
+days.forEach(id => {
+  const box = document.querySelector('.fieldnotes[data-day="' + id + '"]');
+  box.innerHTML =
+    '<div class="fn-head"><h3>Field Notes — Day ' + roman[id] + '</h3><span class="fn-count"></span></div>' +
+    '<div class="fn-media"></div>' +
+    '<div class="fn-entries"></div>' +
+    '<div class="fn-tools">' +
+    '<button class="fn-btn t-note">Write a note</button>' +
+    '<button class="fn-btn t-photo">Add photos</button>' +
+    '<button class="fn-btn t-clip">Add a clip</button>' +
+    '<input type="file" accept="image/*" multiple hidden>' +
+    '</div>' +
+    '<div class="fn-form f-note"><textarea placeholder="What actually happened here…"></textarea>' +
+    '<div class="row"><button class="fn-btn s-note">Save</button><button class="fn-btn c-note">Cancel</button></div></div>' +
+    '<div class="fn-form f-clip"><input type="url" placeholder="Paste a Google Drive share link…">' +
+    '<p class="hint">Film it → upload to our shared Drive folder → Share → "Anyone with the link" → copy link → paste it here. Everyone can watch it right on this page.</p>' +
+    '<div class="row"><button class="fn-btn s-clip">Save clip</button><button class="fn-btn c-clip">Cancel</button></div></div>';
+
+  const noteForm = box.querySelector('.f-note');
+  const clipForm = box.querySelector('.f-clip');
+  const ta = noteForm.querySelector('textarea');
+  const urlInput = clipForm.querySelector('input');
+
+  box.querySelector('.t-note').addEventListener('click', () => {
+    noteForm.classList.toggle('open'); clipForm.classList.remove('open'); ta.focus();
+  });
+  box.querySelector('.t-clip').addEventListener('click', () => {
+    clipForm.classList.toggle('open'); noteForm.classList.remove('open'); urlInput.focus();
+  });
+  box.querySelector('.c-note').addEventListener('click', () => noteForm.classList.remove('open'));
+  box.querySelector('.c-clip').addEventListener('click', () => clipForm.classList.remove('open'));
+
+  box.querySelector('.s-note').addEventListener('click', () => {
+    const text = ta.value.trim();
+    if (!text) return;
+    (store.data.mem[id] ||= []).push({ k: 'n', text, ts: Date.now() });
+    ta.value = '';
+    noteForm.classList.remove('open');
+    store.save();
+    renderNotes(id);
+  });
+
+  box.querySelector('.s-clip').addEventListener('click', () => {
+    const url = urlInput.value.trim();
+    if (!url) return;
+    if (!/^https?:\/\//.test(url)) { alert('That doesn’t look like a link — paste the full share URL.'); return; }
+    (store.data.mem[id] ||= []).push({ k: 'v', url, ts: Date.now() });
+    urlInput.value = '';
+    clipForm.classList.remove('open');
+    store.save();
+    renderNotes(id);
+  });
+
+  const fileInput = box.querySelector('input[type=file]');
+  box.querySelector('.t-photo').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', async e => {
+    for (const f of e.target.files) {
+      const src = await compressImage(f);
+      (store.data.mem[id] ||= []).push({ k: 'p', src, ts: Date.now() });
+    }
+    e.target.value = '';
+    store.save();
+    renderNotes(id);
+  });
+
+  renderNotes(id);
+});
+
+/* ---------- shared Drive folder ---------- */
+const driveLink = document.getElementById('driveLink');
+function askDriveFolder() {
+  const url = prompt('Paste the share link of our Google Drive trip folder\n(open Drive → the folder → Share → "Anyone with the link" → Copy link):', store.data.drive || '');
+  if (url && /^https?:\/\//.test(url)) {
+    store.data.drive = url.trim();
+    store.save();
+    return true;
+  }
+  return false;
+}
+driveLink.addEventListener('click', e => {
+  e.preventDefault();
+  if (store.data.drive || askDriveFolder()) window.open(store.data.drive, '_blank');
+});
+document.getElementById('driveSet').addEventListener('click', askDriveFolder);
+
+/* ---------- backup ---------- */
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(store.data)], { type: 'application/json' }));
+  a.download = 'oregon-loop-journal.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+document.getElementById('importBtn').addEventListener('click', () => document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change', e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  f.text().then(t => {
+    const d = JSON.parse(t);
+    Object.assign(store.data.done, d.done || {});
+    for (const k in (d.mem || {})) store.data.mem[k] = [...(store.data.mem[k] || []), ...d.mem[k]];
+    if (d.drive && !store.data.drive) store.data.drive = d.drive;
+    store.save();
+    location.reload();
+  }).catch(() => alert("That file didn't look like a trip backup."));
+});
+
+/* ---------- reveal + nav spy ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const navLinks = [...document.querySelectorAll('#masthead nav a')];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+days.concat(['appendix']).forEach(id => spy.observe(document.getElementById(id)));
+
+refreshProgress();
+</script>
+</body>
+</html>
